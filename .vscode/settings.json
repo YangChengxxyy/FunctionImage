@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "regex": "cpp",
-        "*.tcc": "cpp",
-        "shared_mutex": "cpp",
-        "*.inc": "cpp",
-        "ostream": "cpp"
-    }
-}
