@@ -18,18 +18,14 @@ regex Expression::priority[15]{
     regex("(.*)\\*(.*)"),            //2
     regex("(.*)/(.*)"),              //3
     regex("(.*)\\^(.*)"),            //4
-
     regex("sin\\((.*)\\)"),          //5
     regex("cos\\((.*)\\)"),          //6
     regex("tan\\((.*)\\)"),          //7
-
     regex("arcsin\\((.*)\\)"),       //8
     regex("arccos\\((.*)\\)"),       //9
     regex("arctan\\((.*)\\)"),       //10
-
     regex("log\\((.*),(.*)\\)"),     //11
     regex("ln\\((.*)\\)"),           //12
-
     regex("(^(-?\\d+)(\\.\\d+)?$)"), //13
     regex("x")                       //14
 };
@@ -125,7 +121,7 @@ double Expression::getValue(double x)
         Expression e{m[1].str(), x};
         return asin(e);
     }
-    
+
     if (regex_search(this->exp, m, priority[9]))
     {
         // cout << "arccos" << endl;

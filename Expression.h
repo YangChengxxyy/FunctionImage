@@ -3,7 +3,6 @@
 #include <regex>
 #include "Utils.h"
 
-using std::string;
 using std::cin;
 using std::cmatch;
 using std::cout;
@@ -13,6 +12,7 @@ using std::regex_match;
 using std::regex_search;
 using std::smatch;
 using std::sregex_iterator;
+using std::string;
 
 class Expression
 {
@@ -25,11 +25,11 @@ public:
 
     Expression(string exp);
 
-    Expression(string exp,double x);
+    Expression(string exp, double x);
 
     double getValue(double x);
 
     operator double();
 
-    void getValueList(List& data);
+    void getValueList(List &data);
 };
