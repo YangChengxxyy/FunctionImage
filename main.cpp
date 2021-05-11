@@ -6,26 +6,23 @@
 
 int main()
 {
-    Expression e{"ln(3.3)/2+tan(x)^2", 3};
-    cout << e << endl;
-    clock_t start, end;
+    string s;
+    cin >> s;
+    Expression e{s, 3};
 
     double x[100];
     for (int i = 0; i < 100; i++)
     {
         x[i] = i * 0.01;
     }
-    double sum[100];
-    start = clock();
+
+    List xx{x, 100};
+    
+    e.getValueList(xx);
+
     for (int i = 0; i < 100; i++)
     {
-        sum[i] = e.getValue(x[i]);
-    }
-    end = clock();
-    cout << (double)(end - start) / CLOCKS_PER_SEC << endl;
-    for (int i = 0; i < 100; i++)
-    {
-        printf("%.2lf\t%.8lf\n",x[i],sum[i]);
+        printf("%.2lf\t%.8lf\n", 0.01*i, xx.data[i]);
     }
 
     return 0;

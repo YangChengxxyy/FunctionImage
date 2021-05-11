@@ -21,7 +21,7 @@ public:
 
     double x;
 
-    static regex priority[11];
+    static regex priority[12];
 
     Expression(string exp);
 
@@ -30,4 +30,6 @@ public:
     double getValue(double x);
 
     operator double();
+
+    void getValueList(List& data);
 };

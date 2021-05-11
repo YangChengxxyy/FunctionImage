@@ -3,13 +3,19 @@
 
 using std::string;
 
-
 enum class Computer
 {
-    SIN, COS, TAN, POWER, MULTIPY, DIVIDE, ADD, SUB
+    SIN,
+    COS,
+    TAN,
+    POWER,
+    MULTIPY,
+    DIVIDE,
+    ADD,
+    SUB
 };
 
-inline string& trim(string& s)
+inline string &trim(string &s)
 {
     int index = 0;
     if (!s.empty())
@@ -21,3 +27,15 @@ inline string& trim(string& s)
     }
     return s;
 }
+
+struct List
+{
+public:
+    double *data;
+    int size;
+    List(double *data, int size)
+    {
+        this->data = data;
+        this->size = size;
+    }
+};
