@@ -21,7 +21,7 @@ public:
 
     double x;
 
-    static regex priority[12];
+    static regex priority[15];
 
     Expression(string exp);
 
