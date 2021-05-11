@@ -1,3 +1,0 @@
-/home/yangcheng/Documents/VscodeProjects/console-app/build/CMakeFiles/rebuild_cache.dir
-/home/yangcheng/Documents/VscodeProjects/console-app/build/CMakeFiles/edit_cache.dir
-/home/yangcheng/Documents/VscodeProjects/console-app/build/CMakeFiles/main.dir
