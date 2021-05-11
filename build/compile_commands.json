@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/yangcheng/Documents/VscodeProjects/console-app/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/main.dir/Expression.cpp.o -c /home/yangcheng/Documents/VscodeProjects/console-app/Expression.cpp",
+  "file": "/home/yangcheng/Documents/VscodeProjects/console-app/Expression.cpp"
+},
+{
+  "directory": "/home/yangcheng/Documents/VscodeProjects/console-app/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/main.dir/Parameter.cpp.o -c /home/yangcheng/Documents/VscodeProjects/console-app/Parameter.cpp",
+  "file": "/home/yangcheng/Documents/VscodeProjects/console-app/Parameter.cpp"
+},
+{
+  "directory": "/home/yangcheng/Documents/VscodeProjects/console-app/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/main.dir/main.cpp.o -c /home/yangcheng/Documents/VscodeProjects/console-app/main.cpp",
+  "file": "/home/yangcheng/Documents/VscodeProjects/console-app/main.cpp"
+}
+]
