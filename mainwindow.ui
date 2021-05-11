@@ -15,44 +15,48 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="4">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>——</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QLineEdit" name="expressionEdit"/>
     </item>
-    <item row="0" column="5">
-     <widget class="QLineEdit" name="manXEdit"/>
-    </item>
-    <item row="1" column="0" colspan="6">
-     <widget class="QTableWidget" name="tableWidget"/>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>生成</string>
+      </property>
+     </widget>
     </item>
     <item row="0" column="2">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>精度</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLineEdit" name="minXEdit_2"/>
+    </item>
+    <item row="0" column="4">
      <widget class="QLabel" name="label">
       <property name="text">
        <string>x:</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="3">
+    <item row="0" column="5">
      <widget class="QLineEdit" name="minXEdit"/>
     </item>
-    <item row="0" column="1">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+    <item row="0" column="6">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>——</string>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLineEdit" name="maxXEdit"/>
+    </item>
+    <item row="1" column="0" colspan="8">
+     <widget class="QTableView" name="tableView"/>
     </item>
    </layout>
   </widget>
