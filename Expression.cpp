@@ -109,7 +109,7 @@ double Expression::getValue(double x)
     }
     if (regex_search(this->exp, m, priority[8]))
     {
-        // cout << "^" << endl;
+        // cout << "log10" << endl;
         // cout << "m1:" << m[1].str() << endl;
         // cout << "m2:" << m[2].str() << endl;
         // cout << "-------------" << endl;
