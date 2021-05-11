@@ -43,6 +43,7 @@ double Expression::getValue(double x)
         Expression e2{m[2].str(), x};
         return e1 + e2;
     }
+
     if (regex_search(this->exp, m, priority[1]))
     {
         // cout << "-" << endl;
@@ -64,6 +65,7 @@ double Expression::getValue(double x)
         Expression e2{m[2].str(), x};
         return e1 * e2;
     }
+
     if (regex_search(this->exp, m, priority[3]))
     {
         // cout << "/" << endl;
@@ -74,6 +76,7 @@ double Expression::getValue(double x)
         Expression e2{m[2].str(), x};
         return e1 / e2;
     }
+
     if (regex_search(this->exp, m, priority[4]))
     {
         // cout << "^" << endl;
@@ -151,6 +154,7 @@ double Expression::getValue(double x)
         Expression e2{m[2].str(), x};
         return log10(e2) / log10(e1);
     }
+
     if (regex_search(this->exp, m, priority[12]))
     {
         // cout << "ln" << endl;
@@ -167,6 +171,7 @@ double Expression::getValue(double x)
         // cout << "-------------" << endl;
         return atof(m[1].str().c_str());
     }
+    
     if (regex_search(this->exp, m, priority[14]))
     {
         // cout << "x:" << x << endl;
