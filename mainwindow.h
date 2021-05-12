@@ -27,13 +27,18 @@ private slots:
 
     void on_maxXEdit_textEdited(const QString &arg1);
 
+    void on_pushButton_clicked();
+
+    void on_preEdit_textEdited(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
     QStandardItemModel *model;
 
     QString exp;
-    double min;
-    double max;
+    double pre = 0.01;
+    double min = 0;
+    double max = 1;
 };
 #endif // MAINWINDOW_H
