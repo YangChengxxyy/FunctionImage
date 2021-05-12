@@ -4,8 +4,12 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    this->ui->setupUi(this);
     initTable();
+    QDoubleValidator *q = new QDoubleValidator();
+    this->ui->maxXEdit->setValidator(q);
+    this->ui->minXEdit->setValidator(q);
+    this->ui->preEdit->setValidator(q);
 }
 
 void MainWindow::initTable()
@@ -13,15 +17,14 @@ void MainWindow::initTable()
     this->model = new QStandardItemModel();
     this->ui->tableView->setModel(model);
     this->model->setHorizontalHeaderItem(0, new QStandardItem("x"));
-    this->ui->tableView->setColumnWidth(0, 230);
+    this->ui->tableView->setColumnWidth(0, 374);
     this->model->setHorizontalHeaderItem(1, new QStandardItem("f(x)"));
-    this->ui->tableView->setColumnWidth(1, 394);
-    //测试数据
+    this->ui->tableView->setColumnWidth(1, 395);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete this->ui;
 }
 
 void MainWindow::on_expressionEdit_textEdited(const QString &arg1)

@@ -3,6 +3,8 @@
 
 #include <QStandardItemModel>
 #include <QMainWindow>
+#include <QDoubleValidator>
+
 #include "Expression.h"
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -18,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    
 private slots:
     void initTable();
 
@@ -40,5 +43,6 @@ private:
     double pre = 0.01;
     double min = 0;
     double max = 1;
+
 };
 #endif // MAINWINDOW_H
