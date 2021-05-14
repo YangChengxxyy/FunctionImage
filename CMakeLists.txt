@@ -4,16 +4,17 @@ project(FunctionImage LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check https://doc.qt.io/qt/deployment-android.html for more information.
-# They need to be set before the find_package( ...) calls below.
+# QtCreator supports tFunctionImage following variables for Android, which are identical to qmake Android variables.
+# CFunctionImageck http://doc.qt.io/qt-5/deployment-android.html for more information.
+# TFunctionImagey need to be set before tFunctionImage find_package(Qt5 ...) call.
 
 #if(ANDROID)
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
@@ -24,33 +25,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
+set(CMAKE_PREFIX_PATH $ENV{QT_DIR})
+
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
-set(PROJECT_SOURCES
-        Expression.h
-        Expression.cpp
-        Utils.h
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-)
-
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(FunctionImage
-        ${PROJECT_SOURCES}
-    )
+if(ANDROID)
+  add_library(FunctionImage SHARED
+      Expression.h
+      Expression.cpp
+      Utils.h
+      main.cpp
+      mainwindow.cpp
+      mainwindow.h
+      mainwindow.ui
+  )
 else()
-    if(ANDROID)
-        add_library(FunctionImage SHARED
-            ${PROJECT_SOURCES}
-        )
-    else()
-        add_executable(FunctionImage
-            ${PROJECT_SOURCES}
-        )
-    endif()
+  add_executable(FunctionImage
+      Expression.h
+      Expression.cpp
+      Utils.h
+      main.cpp
+      mainwindow.cpp
+      mainwindow.h
+      mainwindow.ui
+  )
 endif()
 
 target_link_libraries(FunctionImage PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

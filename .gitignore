@@ -1,4 +1,4 @@
-/.vscode
+/.vscode/**
 /build
 /CMakeFiles
 cmake_install.cmake
@@ -7,4 +7,5 @@ CMakeLists.txt.user
 CMakeLists.txt.user**
 Makefile
 
-Fun.pro**
+*.vcxproj**
+*.sln
