@@ -1,4 +1,4 @@
-/.vscode/**
+/.vscode
 /build
 /CMakeFiles
 cmake_install.cmake
@@ -9,3 +9,6 @@ Makefile
 
 *.vcxproj**
 *.sln
+
+/.idea
+/cmake-build-debug
