@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EXPRESSION_H
+#define EXPRESSION_H
+
 #include <iostream>
 #include <regex>
 #include "Utils.h"
@@ -33,3 +35,5 @@ public:
 
     void getValueList(List &data);
 };
+
+#endif

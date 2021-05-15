@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <iostream>
 
 using std::string;
@@ -39,3 +41,5 @@ public:
         this->size = size;
     }
 };
+
+#endif
