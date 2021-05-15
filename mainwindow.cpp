@@ -46,19 +46,20 @@ void MainWindow::on_pushButton_clicked()
 {
     Expression e{this->exp.toStdString()};
     this->model->setHorizontalHeaderItem(1, new QStandardItem("f(x)=" + this->exp));
-    // int size = qRound((max - min) / pre) + 1;
-    double x[101];
-    for (int i = 0; i < 101; i++)
+    int size = qRound((max - min) / pre) + 1;
+    double *x = new double[size];
+    for (int i = 0; i < size; i++)
     {
         x[i] = i * pre + min;
     }
-    List l{x, 101};
+    List l{x, size};
     e.getValueList(l);
-    for (int i = 0; i < 101; i++)
+    for (int i = 0; i < size; i++)
     {
         this->model->setItem(i, 0, new QStandardItem(QString::number(i * pre + min)));
         this->model->setItem(i, 1, new QStandardItem(QString::number(l.data[i], 'f', 10)));
     }
+    delete[] x;
 }
 
 void MainWindow::on_preEdit_textEdited(const QString &arg1)

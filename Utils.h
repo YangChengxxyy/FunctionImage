@@ -17,7 +17,7 @@ enum class Computer
 
 inline string &trim(string &s)
 {
-    int index = 0;
+    auto index = 0;
     if (!s.empty())
     {
         while ((index = s.find(' ', index)) != string::npos)
