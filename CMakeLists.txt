@@ -32,6 +32,8 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
   add_library(FunctionImage SHARED
+      Equals.h
+      Equals.cpp
       Expression.h
       Expression.cpp
       Utils.h
@@ -42,6 +44,8 @@ if(ANDROID)
   )
 else()
   add_executable(FunctionImage
+      Equals.h
+      Equals.cpp
       Expression.h
       Expression.cpp
       Utils.h

@@ -2,7 +2,10 @@
 #define UTILS_H
 
 #include <iostream>
+#include <cmath>
 
+using std::cout;
+using std::endl;
 using std::string;
 
 enum class Computer
@@ -39,6 +42,13 @@ public:
     {
         this->data = data;
         this->size = size;
+    }
+    void show()
+    {
+        for (int i = 0; i < this->size; i++)
+        {
+            printf("%.3lf\n", *(data + i));
+        }
     }
 };
 

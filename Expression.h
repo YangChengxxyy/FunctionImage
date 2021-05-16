@@ -29,6 +29,10 @@ public:
 
     Expression(string exp, double x);
 
+    Expression(const Expression &e);
+
+    Expression& operator=(const Expression &e);
+
     double getValue(double x);
 
     operator double();

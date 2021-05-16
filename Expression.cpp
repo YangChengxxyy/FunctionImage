@@ -12,6 +12,12 @@ Expression::Expression(string exp, double x)
     this->x = x;
 }
 
+Expression::Expression(const Expression &e)
+{
+    this->exp = e.exp;
+    this->x = e.x;
+}
+
 regex Expression::priority[15]{
     regex("(.*)\\+(.*)"),            //0
     regex("(.*)\\-(.*)"),            //1
@@ -171,7 +177,7 @@ double Expression::getValue(double x)
         // cout << "-------------" << endl;
         return atof(m[1].str().c_str());
     }
-    
+
     if (regex_search(this->exp, m, priority[14]))
     {
         // cout << "x:" << x << endl;
