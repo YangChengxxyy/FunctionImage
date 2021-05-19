@@ -191,6 +191,10 @@ double Expression::getValue(double x)
 
 Expression::operator double()
 {
+    if (isConst)
+    {
+        return con;
+    }
     return getValue(this->x);
 }
 
@@ -199,9 +203,10 @@ void Expression::getValueList(List &x)
     x.data[0] = this->getValue(x.data[0]);
     if (isConst)
     {
+        con = x.data[0];
         for (int i = 1; i < x.size; i++)
         {
-            x.data[i] = x.data[0];;
+            x.data[i] = x.data[0];
         }
     }
     else

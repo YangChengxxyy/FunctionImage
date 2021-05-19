@@ -26,6 +26,8 @@ public:
 
     bool isConst = true;
 
+    double con = 0;
+
     static regex priority[15];
 
     Expression(string exp);
