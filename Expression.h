@@ -5,10 +5,11 @@
 #include <regex>
 #include "Utils.h"
 
-using std::cin;
-using std::cmatch;
 using std::cout;
+using std::cin;
 using std::endl;
+
+using std::cmatch;
 using std::regex;
 using std::regex_match;
 using std::regex_search;
@@ -22,6 +23,8 @@ public:
     string exp;
 
     double x;
+
+    bool isConst = true;
 
     static regex priority[15];
 

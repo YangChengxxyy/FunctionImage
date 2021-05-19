@@ -15,3 +15,15 @@ set<double> Equals::solve(int min, int max, double pre)
     }
     return s;
 }
+
+void testEquals()
+{
+    Expression left("3");
+    Expression right("2 * x + 1");
+    Equals e(left, right);
+    auto s = e.solve(-5, 5, 0.0001);
+    for (set<double>::iterator it = s.begin(); it != s.end(); it++)
+    {
+        printf("%lf\n", *it);
+    }
+}

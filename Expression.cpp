@@ -182,6 +182,7 @@ double Expression::getValue(double x)
     {
         // cout << "x:" << x << endl;
         // cout << "-------------" << endl;
+        isConst = false;
         return x;
     }
 
@@ -195,8 +196,20 @@ Expression::operator double()
 
 void Expression::getValueList(List &x)
 {
-    for (int i = 0; i < x.size; i++)
+    x.data[0] = this->getValue(x.data[0]);
+    if (isConst)
     {
-        x.data[i] = this->getValue(x.data[i]);
+        for (int i = 1; i < x.size; i++)
+        {
+            x.data[i] = x.data[0];;
+        }
+    }
+    else
+    {
+        for (int i = 1; i < x.size; i++)
+        {
+
+            x.data[i] = this->getValue(x.data[i]);
+        }
     }
 }
