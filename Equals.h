@@ -7,8 +7,6 @@
 #include "Utils.h"
 #include "Expression.h"
 
-using std::set;
-
 class Equals
 {
 private:
@@ -23,7 +21,7 @@ public:
      * @author YangChengxxyy
      * @return multiset
      */
-    set<double> solve(int min = -10, int max = 10, double pre = 0.01);
+    std::set<double> solve(int min = -10, int max = 10, double pre = 0.01);
 };
 
 #endif

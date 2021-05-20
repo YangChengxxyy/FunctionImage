@@ -5,18 +5,6 @@
 #include <regex>
 #include "Utils.h"
 
-using std::cout;
-using std::cin;
-using std::endl;
-
-using std::cmatch;
-using std::regex;
-using std::regex_match;
-using std::regex_search;
-using std::smatch;
-using std::sregex_iterator;
-using std::string;
-
 class Expression
 {
 public:
@@ -28,7 +16,7 @@ public:
 
     double con = 0;
 
-    static regex priority[15];
+    static std::regex priority[15];
 
     Expression(string exp);
 

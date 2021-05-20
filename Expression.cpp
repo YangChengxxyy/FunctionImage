@@ -18,28 +18,32 @@ Expression::Expression(const Expression &e)
     this->x = e.x;
 }
 
-regex Expression::priority[15]{
-    regex("(.*)\\+(.*)"),            //0
-    regex("(.*)\\-(.*)"),            //1
-    regex("(.*)\\*(.*)"),            //2
-    regex("(.*)/(.*)"),              //3
-    regex("(.*)\\^(.*)"),            //4
-    regex("sin\\((.*)\\)"),          //5
-    regex("cos\\((.*)\\)"),          //6
-    regex("tan\\((.*)\\)"),          //7
-    regex("arcsin\\((.*)\\)"),       //8
-    regex("arccos\\((.*)\\)"),       //9
-    regex("arctan\\((.*)\\)"),       //10
-    regex("log\\((.*),(.*)\\)"),     //11
-    regex("ln\\((.*)\\)"),           //12
-    regex("(^(-?\\d+)(\\.\\d+)?$)"), //13
-    regex("x")                       //14
+std::regex Expression::priority[15]{
+    std::regex("(.*)\\+(.*)"),            //0
+    std::regex("(.*)\\-(.*)"),            //1
+    std::regex("(.*)\\*(.*)"),            //2
+    std::regex("(.*)/(.*)"),              //3
+    std::regex("(.*)\\^(.*)"),            //4
+    std::regex("sin\\((.*)\\)"),          //5
+    std::regex("cos\\((.*)\\)"),          //6
+    std::regex("tan\\((.*)\\)"),          //7
+    std::regex("arcsin\\((.*)\\)"),       //8
+    std::regex("arccos\\((.*)\\)"),       //9
+    std::regex("arctan\\((.*)\\)"),       //10
+    std::regex("log\\((.*),(.*)\\)"),     //11
+    std::regex("ln\\((.*)\\)"),           //12
+    std::regex("(^(-?\\d+)(\\.\\d+)?$)"), //13
+    std::regex("x")                       //14
 };
 
 double Expression::getValue(double x)
 {
-    smatch m;
-    if (regex_search(this->exp, m, priority[0]))
+    if(isConst)
+    {
+        return con;
+    }
+    std::smatch m;
+    if (std::regex_search(this->exp, m, priority[0]))
     {
         // cout << "+" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -50,7 +54,7 @@ double Expression::getValue(double x)
         return e1 + e2;
     }
 
-    if (regex_search(this->exp, m, priority[1]))
+    if (std::regex_search(this->exp, m, priority[1]))
     {
         // cout << "-" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -61,7 +65,7 @@ double Expression::getValue(double x)
         return e1 - e2;
     }
 
-    if (regex_search(this->exp, m, priority[2]))
+    if (std::regex_search(this->exp, m, priority[2]))
     {
         // cout << "*" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -72,7 +76,7 @@ double Expression::getValue(double x)
         return e1 * e2;
     }
 
-    if (regex_search(this->exp, m, priority[3]))
+    if (std::regex_search(this->exp, m, priority[3]))
     {
         // cout << "/" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -83,7 +87,7 @@ double Expression::getValue(double x)
         return e1 / e2;
     }
 
-    if (regex_search(this->exp, m, priority[4]))
+    if (std::regex_search(this->exp, m, priority[4]))
     {
         // cout << "^" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -94,7 +98,7 @@ double Expression::getValue(double x)
         return pow(e1, e2);
     }
 
-    if (regex_search(this->exp, m, priority[5]))
+    if (std::regex_search(this->exp, m, priority[5]))
     {
         // cout << "sin" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -103,7 +107,7 @@ double Expression::getValue(double x)
         return sin(e);
     }
 
-    if (regex_search(this->exp, m, priority[6]))
+    if (std::regex_search(this->exp, m, priority[6]))
     {
         // cout << "cos" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -113,7 +117,7 @@ double Expression::getValue(double x)
         return cos(e);
     }
 
-    if (regex_search(this->exp, m, priority[7]))
+    if (std::regex_search(this->exp, m, priority[7]))
     {
         // cout << "tan" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -122,7 +126,7 @@ double Expression::getValue(double x)
         return tan(e);
     }
 
-    if (regex_search(this->exp, m, priority[8]))
+    if (std::regex_search(this->exp, m, priority[8]))
     {
         // cout << "arcsin" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -131,7 +135,7 @@ double Expression::getValue(double x)
         return asin(e);
     }
 
-    if (regex_search(this->exp, m, priority[9]))
+    if (std::regex_search(this->exp, m, priority[9]))
     {
         // cout << "arccos" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -141,7 +145,7 @@ double Expression::getValue(double x)
         return acos(e);
     }
 
-    if (regex_search(this->exp, m, priority[10]))
+    if (std::regex_search(this->exp, m, priority[10]))
     {
         // cout << "arctan" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -150,7 +154,7 @@ double Expression::getValue(double x)
         return atan(e);
     }
 
-    if (regex_search(this->exp, m, priority[11]))
+    if (std::regex_search(this->exp, m, priority[11]))
     {
         // cout << "log10" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -161,7 +165,7 @@ double Expression::getValue(double x)
         return log10(e2) / log10(e1);
     }
 
-    if (regex_search(this->exp, m, priority[12]))
+    if (std::regex_search(this->exp, m, priority[12]))
     {
         // cout << "ln" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -170,7 +174,7 @@ double Expression::getValue(double x)
         return log(e);
     }
 
-    if (regex_search(this->exp, m, priority[13]))
+    if (std::regex_search(this->exp, m, priority[13]))
     {
         // cout << "atof" << endl;
         // cout << "m1:" << m[1].str() << endl;
@@ -178,7 +182,7 @@ double Expression::getValue(double x)
         return atof(m[1].str().c_str());
     }
 
-    if (regex_search(this->exp, m, priority[14]))
+    if (std::regex_search(this->exp, m, priority[14]))
     {
         // cout << "x:" << x << endl;
         // cout << "-------------" << endl;
