@@ -90,7 +90,7 @@ void Dialog::paintEvent(QPaintEvent *)
 
     qPainter.drawText(QPointF(originX + 2, originY - 2), "O");
     qPainter.drawText(QPointF(maxX, originY - 7), "x");
-    qPainter.drawText(QPointF(originX + 7, maxY), "y");
+    qPainter.drawText(QPointF(originX + 7, minY), "y");
 
     //箭头
     QLineF *arrows = new QLineF[4]{{maxX, originY, maxX - 5, originY - 5},
