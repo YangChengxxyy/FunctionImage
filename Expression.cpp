@@ -193,7 +193,7 @@ Expression::operator double()
     return getValue(this->x);
 }
 
-void Expression::getValueList(List &x)
+void Expression::getValueList(Array &x)
 {
 
     for (int i = 0; i < x.size; i++)

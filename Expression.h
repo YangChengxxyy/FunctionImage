@@ -26,7 +26,7 @@ public:
 
     operator double();
 
-    void getValueList(List &data);
+    void getValueList(Array &data);
 };
 
 #endif

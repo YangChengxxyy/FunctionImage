@@ -24,7 +24,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    List *data = nullptr;
+    Array *data = nullptr;
     double *x = nullptr;
 private slots:
     void initTable();

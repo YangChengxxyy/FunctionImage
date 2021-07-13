@@ -63,7 +63,7 @@ void MainWindow::on_pushButton_clicked()
         delete data->data;
         delete data;
     }
-    data = new List{xx, size};
+    data = new Array{xx, size};
     e.getValueList(*data);
     for (int i = 0; i < size; i++)
     {

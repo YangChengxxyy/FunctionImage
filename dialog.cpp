@@ -43,6 +43,18 @@ void Dialog::paintEvent(QPaintEvent *)
         y[i] = -y[i];
     }
 
+    // double w = maxX - minX;
+    // double h = maxY - minY;
+
+    if (maxX > this->width())
+    {
+        maxX = this->width();
+    }
+    if (maxY > this->height())
+    {
+        maxY = this->height();
+    }
+
     height = maxY - minY;
 
     offsetY = -minY;

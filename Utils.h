@@ -8,6 +8,9 @@ using std::cout;
 using std::endl;
 using std::string;
 
+#define MAX(x, y) x > y ? x : y
+#define MIN(x, y) x < y ? x : y
+
 enum class Computer
 {
     SIN,
@@ -33,12 +36,12 @@ inline string &trim(string &s)
     return s;
 }
 
-struct List
+struct Array
 {
 public:
     double *data;
     int size;
-    List(double *data, int size)
+    Array(double *data, int size)
     {
         this->data = data;
         this->size = size;
