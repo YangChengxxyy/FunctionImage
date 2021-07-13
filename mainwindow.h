@@ -6,6 +6,10 @@
 #include <QDoubleValidator>
 
 #include "Expression.h"
+#include "dialog.h"
+
+class Dialog;
+
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
@@ -20,7 +24,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    
+    List *data = nullptr;
+    double *x = nullptr;
 private slots:
     void initTable();
 
@@ -41,8 +46,10 @@ private:
 
     QString exp;
     double pre = 0.01;
-    double min = 0;
-    double max = 1;
+    double min = -10;
+    double max = 10;
+
+    Dialog *dialog;
 
 };
 #endif // MAINWINDOW_H

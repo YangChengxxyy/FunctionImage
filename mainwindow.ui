@@ -33,7 +33,11 @@
      </widget>
     </item>
     <item row="0" column="3">
-     <widget class="QLineEdit" name="preEdit"/>
+     <widget class="QLineEdit" name="preEdit">
+      <property name="text">
+       <string>0.01</string>
+      </property>
+     </widget>
     </item>
     <item row="0" column="4">
      <widget class="QLabel" name="label">
@@ -43,7 +47,11 @@
      </widget>
     </item>
     <item row="0" column="5">
-     <widget class="QLineEdit" name="minXEdit"/>
+     <widget class="QLineEdit" name="minXEdit">
+      <property name="text">
+       <string>-10</string>
+      </property>
+     </widget>
     </item>
     <item row="0" column="6">
      <widget class="QLabel" name="label_2">
@@ -53,7 +61,11 @@
      </widget>
     </item>
     <item row="0" column="7">
-     <widget class="QLineEdit" name="maxXEdit"/>
+     <widget class="QLineEdit" name="maxXEdit">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
     </item>
     <item row="1" column="0" colspan="8">
      <widget class="QTableView" name="tableView"/>
@@ -66,7 +78,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>32</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

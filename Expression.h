@@ -12,10 +12,6 @@ public:
 
     double x;
 
-    bool isConst = true;
-
-    double con = 0;
-
     static std::regex priority[15];
 
     Expression(string exp);

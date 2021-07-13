@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow), dialog(new Dialog(this))
 {
     this->ui->setupUi(this);
     initTable();
@@ -47,18 +47,32 @@ void MainWindow::on_pushButton_clicked()
     Expression e{this->exp.toStdString()};
     this->model->setHorizontalHeaderItem(1, new QStandardItem("f(x)=" + this->exp));
     int size = qRound((max - min) / pre) + 1;
-    double x[size];
+    if (x != nullptr)
+    {
+        delete x;
+    }
+    x = new double[size];
     for (int i = 0; i < size; i++)
     {
         x[i] = i * pre + min;
     }
-    List l{x, size};
-    e.getValueList(l);
+    double *xx = new double[size];
+    memcpy(xx, x, sizeof(double) * size);
+    if (data != nullptr && data->data != nullptr)
+    {
+        delete data->data;
+        delete data;
+    }
+    data = new List{xx, size};
+    e.getValueList(*data);
     for (int i = 0; i < size; i++)
     {
         this->model->setItem(i, 0, new QStandardItem(QString::number(i * pre + min)));
-        this->model->setItem(i, 1, new QStandardItem(QString::number(l.data[i], 'f', 10)));
+        this->model->setItem(i, 1, new QStandardItem(QString::number(data->data[i], 'f', 10)));
     }
+    this->dialog->setWindowTitle(this->exp);
+    this->dialog->show();
+    this->dialog->update();
 }
 
 void MainWindow::on_preEdit_textEdited(const QString &arg1)

@@ -41,6 +41,9 @@ if(ANDROID)
       mainwindow.cpp
       mainwindow.h
       mainwindow.ui
+      dialog.h
+      dialog.cpp
+      dialog.ui
   )
 else()
   add_executable(FunctionImage
@@ -53,6 +56,9 @@ else()
       mainwindow.cpp
       mainwindow.h
       mainwindow.ui
+      dialog.h
+      dialog.cpp
+      dialog.ui
   )
 endif()
 
