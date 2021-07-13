@@ -31,8 +31,6 @@ public:
 
 private:
     Ui::Dialog *ui;
-    const double minWidth = 1920 - 200;
-    const double minHeight = 1080 - 200;
 };
 
 #endif // DIALOG_H
